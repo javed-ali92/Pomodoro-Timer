@@ -149,11 +149,11 @@ export default function PomodoroTimer() {
 
   // JSX return statement rendering the Pomodoro timer UI
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100 dark:bg-gray-900">
+    <div className="flex flex-col items-center justify-center min-h-screen bg-[#3b9687]">
       {/* Center the Pomodoro timer card within the screen */}
-      <Card className="w-full max-w-md p-6 bg-white dark:bg-gray-800 shadow-lg rounded-lg">
+      <Card className="w-full max-w-md p-6 bg-[#49cab5] font-[emoji] [box-shadow:0px_0px_40px_black] shadow-lg rounded-lg">
         <div className="flex flex-col items-center justify-center gap-6">
-          <h1 className="text-4xl font-bold">Pomodoro Timer</h1>
+          <h1 className="text-4xl font-bold ">⏲ Pomodoro Timer ⏲</h1>
           <p>A timer for the Pomodoro Technique.</p>
           <div className="flex flex-col items-center gap-4">
             {/* Display current session (work or break) */}
@@ -171,40 +171,52 @@ export default function PomodoroTimer() {
               {formatTime(state.currentTime)}
             </div>
           </div>
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-4 ">
             {/* Buttons to change duration, start/pause, and reset timer */}
             <Button
+              className="bg-[#3b9687] hover:bg-[#49cab5] text"
               variant="outline"
               size="icon"
               onClick={() => handleDurationChange("work", false)}
             >
-              <MinusIcon className="h-6 w-6" />
+              <MinusIcon className="h-6 w-6 " />
             </Button>
             <Button
+              className="bg-[#3b9687] hover:bg-[#49cab5] text"
               variant="outline"
               size="icon"
               onClick={() => handleDurationChange("work", true)}
             >
               <PlusIcon className="h-6 w-6" />
             </Button>
-            <Button variant="outline" size="icon" onClick={handleStartPause}>
+            <Button
+            className="bg-[#3b9687] hover:bg-[#49cab5] text"
+            variant="outline" 
+            size="icon" 
+            onClick={handleStartPause}>
+
               {state.timerStatus === "running" ? (
-                <PauseIcon className="h-6 w-6" />
+                <PauseIcon className="h-6 w-6 bg-[#3b9687] hover:bg-[#49cab5] text" />
               ) : (
-                <PlayIcon className="h-6 w-6" />
+                <PlayIcon className="h-6 w-6 " />
               )}
             </Button>
-            <Button variant="outline" size="icon" onClick={handleReset}>
+            <Button
+            className="bg-[#3b9687] hover:bg-[#49cab5] text"
+            variant="outline" 
+            size="icon" 
+            onClick={handleReset}>
+
               <RefreshCwIcon className="h-6 w-6" />
             </Button>
           </div>
-          <div className="p-2">
+          <div className="p-2 ">
             {/* AlertDialog for explaining the Pomodoro Technique */}
             <AlertDialog>
               <AlertDialogTrigger asChild>
-                <Button variant="default">What is Pomodoro Technique?</Button>
+                <Button  className="bg-[#38a896] hover:bg-[#279b99] [box-shadow:0px_0px_20px_black] rounded-lg">What is Pomodoro Technique?</Button>
               </AlertDialogTrigger>
-              <AlertDialogContent className="w-full max-w-2xl p-4 md:p-6">
+              <AlertDialogContent className="w-full max-w-2xl  p-4 md:p-6">
                 <AlertDialogHeader>
                   <AlertDialogTitle>
                     <strong> ➡️ Explanation of Pomodoro Technique 🔥</strong>
@@ -240,6 +252,7 @@ but can be customized to fit your needs. The basic steps are:
                         href="https://todoist.com/productivity-methods/pomodoro-technique"
                         target="_blank"
                         rel="noopener noreferrer"
+                        
                       >
                         Click Here to Read more!
                       </a>{" "}
